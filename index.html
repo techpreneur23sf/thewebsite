@@ -3,69 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Website</title>
+    <title>Hardik Patil</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            display: flex;
-            height: 100vh;
-            background-color: #fff;
-        }
-
-        .sidebar {
-            width: 20%;
-            background-color: #f8f8f8;
             padding: 20px;
-            box-sizing: border-box;
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            border-right: 1px solid #ddd;
         }
-
-        .sidebar h1 {
-            font-size: 1.5em;
-            margin-bottom: 1em;
+        nav {
+            width: 200px;
+            padding-right: 20px;
         }
-
-        .sidebar a {
-            color: #333;
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav li {
+            margin-bottom: 10px;
+        }
+        nav a {
             text-decoration: none;
-            margin-bottom: 0.5em;
-            font-size: 1em;
+            color: #333;
         }
-
-        .sidebar a:hover {
+        nav a:hover {
             text-decoration: underline;
         }
-
-        .main-content {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            box-sizing: border-box;
+        main {
+            flex-grow: 1;
         }
-
-        .main-content img {
-            max-width: 80%;
+        img {
+            max-width: 600px;
             height: auto;
-            border: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
-    <div class="sidebar">
+    <nav>
         <h1>Hardik Patil</h1>
-        <a href="#">blog</a>
-        <a href="#">links</a>
-        <a href="#">about</a>
-    </div>
-    <div class="main-content">
-        <img src="https://github.com/techpreneur23sf/thewebsite/raw/0479d5fbad2770a323412e031f3225e11a07718e/IMG_8830%20copy.jpg" alt="Golden Gate Bridge" style="width: 300px; height: auto;">
-    </div>
+        <ul>
+            <li><a href="books.html">books</a></li>
+            <li><a href="photos.html">photos</a></li>
+            <li><a href="links.html">links</a></li>
+            <li><a href="press.html">press</a></li>
+            <li><a href="about.html">about</a></li>
+        </ul>
+    </nav>
+    <main>
+        <img src=https://github.com/techpreneur23sf/thewebsite/raw/0479d5fbad2770a323412e031f3225e11a07718e/IMG_8830%20copy.jpg" alt="Golden Gate Bridge">
+    </main>
 </body>
 </html>
