@@ -33,8 +33,14 @@
             flex-grow: 1;
         }
         img {
-            max-width: 600px;
+            max-width: 100%;
             height: auto;
+        }
+        
+        @media (min-width: 768px) {
+            img {
+                max-width: 600px;
+            }
         }
     </style>
 </head>
