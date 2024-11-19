@@ -4,47 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hardik Patil - Blog</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-        }
-        nav {
-            width: 200px;
-            padding-right: 20px;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        nav li {
-            margin-bottom: 10px;
-        }
-        nav a {
-            text-decoration: none;
-            color: #333;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main {
-            flex-grow: 1;
-            line-height: 1.6;
-        }
-        h1 a {
-            text-decoration: none;
-            color: inherit;
-        }
-        .coming-soon {
-            font-style: italic;
-            color: #666;
-        }
-        .blog-list {
-            padding-left: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav>
@@ -54,6 +14,12 @@
             <li><a href="links.html">links</a></li>
             <li><a href="about.html">about</a></li>
         </ul>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch">
+                <input type="checkbox" onchange="toggleDarkMode()">
+                <span class="slider"></span>
+            </label>
+        </div>
     </nav>
     <main>
         <h2>Blog</h2>
@@ -63,5 +29,6 @@
             <li>Las Vegas, the gambling industrial complex, and what's next for it</li>
         </ul>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>

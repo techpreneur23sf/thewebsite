@@ -4,45 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hardik Patil</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-        }
-        nav {
-            width: 200px;
-            padding-right: 20px;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        nav li {
-            margin-bottom: 10px;
-        }
-        nav a {
-            text-decoration: none;
-            color: #333;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main {
-            flex-grow: 1;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        @media (min-width: 768px) {
-            img {
-                max-width: 600px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav>
@@ -52,9 +14,16 @@
             <li><a href="links.html">links</a></li>
             <li><a href="about.html">about</a></li>
         </ul>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch">
+                <input type="checkbox" onchange="toggleDarkMode()">
+                <span class="slider"></span>
+            </label>
+        </div>
     </nav>
     <main>
         <img src="https://github.com/techpreneur23sf/thewebsite/raw/0479d5fbad2770a323412e031f3225e11a07718e/IMG_8830%20copy.jpg" alt="Golden Gate Bridge">
     </main>
+    <script src="script.js"></script>
 </body>
 </html>

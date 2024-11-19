@@ -4,45 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hardik Patil - Links</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-        }
-        nav {
-            width: 200px;
-            padding-right: 20px;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        nav li {
-            margin-bottom: 10px;
-        }
-        nav a {
-            text-decoration: none;
-            color: #333;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main {
-            flex-grow: 1;
-        }
-        .link-item {
-            margin-bottom: 20px;
-        }
-        .link-item a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-        .link-item a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav>
@@ -52,12 +14,20 @@
             <li><a href="links.html">links</a></li>
             <li><a href="about.html">about</a></li>
         </ul>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch">
+                <input type="checkbox" onchange="toggleDarkMode()">
+                <span class="slider"></span>
+            </label>
+        </div>
     </nav>
     <main>
         <h2>Links</h2>
         <div class="link-item">
             <p><a href="https://techcrunch.com/2022/09/27/og-app-promises-you-an-ad-free-instagram-feed/">TechCrunch wrote about The OG App</a>, how it was received by users, the circumstances that led to it being taken down, and my reaction at the time.</p>
             <p><a href="https://archive.org/stream/cia-manual-trickery-deception-2009/cia-manual-trickery-deception-2009_djvu.txt">The CIA Manual for Trickery and Deception</a>, because the Cold War might end, but human nature remains (relatively) unchanged.</p>
+        </div>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>

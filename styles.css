@@ -1,0 +1,187 @@
+/* Add these CSS variables to your root element */
+:root {
+  /* Light mode colors (default) */
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #0066cc;
+  --border-color: #dddddd;
+  --coming-soon-color: #666;
+}
+
+/* Dark mode colors */
+@media (prefers-color-scheme: dark) {
+  html:not(.light-mode) {
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+    --link-color: #66b3ff;
+    --border-color: #404040;
+    --coming-soon-color: #999;
+  }
+}
+
+/* Manual theme overrides */
+html.light-mode {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #0066cc;
+  --border-color: #dddddd;
+  --coming-soon-color: #666;
+}
+
+html.dark-mode {
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+  --link-color: #66b3ff;
+  --border-color: #404040;
+  --coming-soon-color: #999;
+}
+
+/* Add smooth transitions for theme changes */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav {
+  width: 200px;
+  padding-right: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav li {
+  margin-bottom: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  flex-grow: 1;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+main a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+main a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 40px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+  font-size: 0.9em;
+}
+
+/* Blog specific styles */
+.coming-soon {
+  font-style: italic;
+  color: var(--coming-soon-color);
+}
+
+.blog-list {
+  padding-left: 20px;
+}
+
+/* Links specific styles */
+.link-item {
+  margin-bottom: 20px;
+}
+
+/* Image styles */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  img {
+    max-width: 600px;
+  }
+}
+
+/* Theme switcher styles - updated */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;  /* reduced width */
+  height: 20px; /* reduced height */
+  margin-top: 20px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #666;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Remove the theme label styles */
+.theme-switch-label {
+  display: none;
+}
+
+/* Remove the old dark mode toggle button styles */
+.dark-mode-toggle {
+  display: none;
+}
+
+a {
+  transition: color 0.3s ease;
+} 
