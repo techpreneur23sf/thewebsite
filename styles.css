@@ -184,4 +184,34 @@ input:checked + .slider:before {
 
 a {
   transition: color 0.3s ease;
+}
+
+.home-layout {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.image-container {
+    flex: 1;
+    min-width: 300px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.about-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+@media (max-width: 768px) {
+    .home-layout {
+        flex-direction: column;
+    }
 } 

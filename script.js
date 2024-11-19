@@ -52,7 +52,17 @@ function initTheme() {
     });
 }
 
-// Initialize theme when page loads
-document.addEventListener('DOMContentLoaded', initTheme);
+// Add this function to load the navigation bar
+async function loadNavBar() {
+    const response = await fetch('nav.html');
+    const navHtml = await response.text();
+    document.body.insertAdjacentHTML('afterbegin', navHtml);
+}
+
+// Call this function when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    loadNavBar();
+    initTheme();
+});
 
 // Add this class to your CSS 
