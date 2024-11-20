@@ -1,53 +1,39 @@
 // Function to set theme and update UI
-function setTheme(theme) {
+function setTheme(isDark) {
     const html = document.documentElement;
-    const toggle = document.querySelector('.theme-switch input');
-    
-    // Remove any existing theme classes
-    html.classList.remove('light-mode', 'dark-mode');
-    
-    // Add the new theme class if it's not 'system'
-    if (theme !== 'system') {
-        html.classList.add(`${theme}-mode`);
-    }
-    
-    // Update toggle state
-    if (toggle) {
-        toggle.checked = theme === 'system' 
-            ? window.matchMedia('(prefers-color-scheme: dark)').matches 
-            : theme === 'dark';
-    }
-    
-    // Save preference
-    localStorage.setItem('theme', theme);
-}
-
-// Function to handle toggle changes
-function toggleDarkMode() {
-    const toggle = document.querySelector('.theme-switch input');
-    const currentTheme = localStorage.getItem('theme') || 'system';
-    
-    if (currentTheme === 'system') {
-        // If currently using system theme, switch to manual mode
-        setTheme(toggle.checked ? 'dark' : 'light');
+    if (isDark) {
+        html.classList.remove('light-mode');
+        html.classList.add('dark-mode');
     } else {
-        // If using manual theme, switch to system theme
-        setTheme('system');
+        html.classList.remove('dark-mode');
+        html.classList.add('light-mode');
     }
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
 
 // Function to initialize theme
 function initTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'system';
-    setTheme(savedTheme);
+    const toggleSwitch = document.querySelector('#checkbox');
+    if (!toggleSwitch) return;
+
+    // Set initial theme
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
     
+    setTheme(isDark);
+    toggleSwitch.checked = isDark;
+
+    // Handle toggle changes
+    toggleSwitch.addEventListener('change', (e) => {
+        setTheme(e.target.checked);
+    });
+
     // Listen for system theme changes
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (localStorage.getItem('theme') === 'system') {
-            const toggle = document.querySelector('.theme-switch input');
-            if (toggle) {
-                toggle.checked = e.matches;
-            }
+        if (!localStorage.getItem('theme')) {
+            setTheme(e.matches);
+            toggleSwitch.checked = e.matches;
         }
     });
 }
@@ -57,12 +43,12 @@ async function loadNavBar() {
     const response = await fetch('nav.html');
     const navHtml = await response.text();
     document.body.insertAdjacentHTML('afterbegin', navHtml);
+    initTheme(); // Initialize theme after nav is loaded
 }
 
 // Call this function when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     loadNavBar();
-    initTheme();
 });
 
 // Add this class to your CSS 
@@ -310,34 +296,3 @@ function draw() {
 
     requestAnimationFrame(draw);
 }
-
-// Function to handle theme switching
-function initThemeToggle() {
-    const toggleSwitch = document.querySelector('#checkbox');
-    const currentTheme = localStorage.getItem('theme');
-
-    // Set initial theme based on localStorage or system preference
-    if (currentTheme) {
-        document.documentElement.className = currentTheme;
-        if (currentTheme === 'dark-mode') {
-            toggleSwitch.checked = true;
-        }
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.className = 'dark-mode';
-        toggleSwitch.checked = true;
-    }
-
-    // Handle theme toggle
-    toggleSwitch.addEventListener('change', function(e) {
-        if (e.target.checked) {
-            document.documentElement.className = 'dark-mode';
-            localStorage.setItem('theme', 'dark-mode');
-        } else {
-            document.documentElement.className = 'light-mode';
-            localStorage.setItem('theme', 'light-mode');
-        }
-    });
-}
-
-// Initialize theme toggle when DOM is loaded
-document.addEventListener('DOMContentLoaded', initThemeToggle);
