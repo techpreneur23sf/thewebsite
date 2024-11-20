@@ -310,3 +310,34 @@ function draw() {
 
     requestAnimationFrame(draw);
 }
+
+// Function to handle theme switching
+function initThemeToggle() {
+    const toggleSwitch = document.querySelector('#checkbox');
+    const currentTheme = localStorage.getItem('theme');
+
+    // Set initial theme based on localStorage or system preference
+    if (currentTheme) {
+        document.documentElement.className = currentTheme;
+        if (currentTheme === 'dark-mode') {
+            toggleSwitch.checked = true;
+        }
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.className = 'dark-mode';
+        toggleSwitch.checked = true;
+    }
+
+    // Handle theme toggle
+    toggleSwitch.addEventListener('change', function(e) {
+        if (e.target.checked) {
+            document.documentElement.className = 'dark-mode';
+            localStorage.setItem('theme', 'dark-mode');
+        } else {
+            document.documentElement.className = 'light-mode';
+            localStorage.setItem('theme', 'light-mode');
+        }
+    });
+}
+
+// Initialize theme toggle when DOM is loaded
+document.addEventListener('DOMContentLoaded', initThemeToggle);

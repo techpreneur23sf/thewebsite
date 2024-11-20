@@ -132,9 +132,9 @@ img {
 .theme-switch {
   position: relative;
   display: inline-block;
-  width: 40px;  /* reduced width */
-  height: 20px; /* reduced height */
-  margin-top: 20px;
+  width: 40px;
+  height: 20px;
+  margin: 0;
 }
 
 .theme-switch input {
@@ -168,7 +168,7 @@ img {
 }
 
 input:checked + .slider {
-  background-color: #666;
+  background-color: #66b3ff;
 }
 
 input:checked + .slider:before {
@@ -179,6 +179,7 @@ input:checked + .slider:before {
   display: flex;
   align-items: center;
   margin-top: 20px;
+  justify-content: flex-start;
 }
 
 /* Remove the theme label styles */
