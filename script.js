@@ -282,7 +282,21 @@ function draw() {
         ball.dy = -ball.dy;
     } else if (ball.y + ball.dy > canvas.height - ball.radius) {
         if (ball.x > paddle.x && ball.x < paddle.x + paddle.width) {
-            ball.dy = -ball.dy;
+            // Calculate where the ball hits the paddle (0 to 1)
+            const hitPoint = (ball.x - paddle.x) / paddle.width;
+            
+            // Define maximum deflection angle (in radians)
+            const maxAngle = Math.PI / 6; // 30 degrees
+            
+            // Calculate deflection angle (-30 to +30 degrees)
+            const deflectionAngle = (hitPoint * 2 - 1) * maxAngle;
+            
+            // Set base speed
+            const baseSpeed = 4;
+            
+            // Calculate new velocities
+            ball.dx = baseSpeed * Math.sin(deflectionAngle);
+            ball.dy = -baseSpeed * Math.cos(deflectionAngle);
         } else {
             alert('Game Over');
             gameRunning = false;
