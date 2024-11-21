@@ -58,9 +58,27 @@ const ctx = canvas.getContext('2d');
 const startButton = document.getElementById('startButton');
 const scoreElement = document.getElementById('score');
 
-// Set canvas size
-canvas.width = 800;
-canvas.height = 600;
+// Replace the fixed canvas size with responsive sizing
+function resizeCanvas() {
+    const container = canvas.parentElement;
+    canvas.width = Math.min(800, container.clientWidth - 20); // 20px for padding
+    canvas.height = Math.min(600, canvas.width * 0.75); // maintain aspect ratio
+    
+    // Adjust paddle size for smaller screens
+    paddle.width = Math.max(60, canvas.width * 0.125); // 12.5% of canvas width
+    
+    // Reset paddle and ball position
+    if (!gameRunning) {
+        paddle.x = canvas.width / 2 - paddle.width / 2;
+        ball.x = canvas.width / 2;
+        ball.y = canvas.height - 30;
+    }
+}
+
+// Add resize event listener after canvas declaration
+window.addEventListener('resize', resizeCanvas);
+// Call it initially
+resizeCanvas();
 
 // Game objects
 const ball = {
