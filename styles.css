@@ -202,6 +202,7 @@ a {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+    box-sizing: border-box;
 }
 
 .image-container {
@@ -223,6 +224,42 @@ a {
 @media (max-width: 768px) {
     .home-layout {
         flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .image-container {
+        min-width: auto;
+        order: -1;
+    }
+
+    .about-content {
+        min-width: auto;
+    }
+
+    main {
+        padding: 0 15px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    .image-container img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    ul {
+        padding-left: 20px;
+        box-sizing: border-box;
+    }
+
+    /* Hide brick breaker link and theme switch on mobile */
+    nav li:nth-child(3), /* Brick Breaker link */
+    .theme-switch-wrapper {
+        display: none;
     }
 }
 
@@ -256,4 +293,53 @@ button {
     .mobile-hidden {
         display: none;
     }
+}
+
+/* Add media query for mobile devices */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    nav {
+        width: 100%;
+        position: relative;
+        padding: 15px;
+        top: 0;
+        margin-bottom: 20px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    nav ul {
+        display: flex;
+        gap: 15px;
+        margin: 10px 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+
+    nav ul::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Edge */
+    }
+
+    nav li {
+        margin-bottom: 0;
+        white-space: nowrap;
+    }
+
+    .theme-switch-wrapper {
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    main {
+        padding: 0 15px;
+    }
+}
+
+* {
+    max-width: 100%;
+    box-sizing: border-box;
 } 
