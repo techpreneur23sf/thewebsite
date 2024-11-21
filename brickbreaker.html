@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Brick Breaker</title>
         <link rel="stylesheet" href="styles.css">
     </head>
@@ -17,33 +17,14 @@
         <script src="script.js"></script>
         <script>
             const canvas = document.getElementById('gameCanvas');
-            
-            // Prevent default touch behaviors
-            canvas.addEventListener('touchstart', function(e) {
-                e.preventDefault();
-            }, { passive: false });
-            
-            canvas.addEventListener('touchmove', function(e) {
-                e.preventDefault();
-                const touch = e.touches[0];
+            canvas.addEventListener('touchmove', function(event) {
+                event.preventDefault(); // Prevent scrolling
+                const touch = event.touches[0];
                 const rect = canvas.getBoundingClientRect();
-                const paddleX = touch.clientX - rect.left;
-                
-                // Ensure paddle stays within canvas bounds
-                if (paddleX >= 0 && paddleX <= canvas.width) {
-                    paddle.x = Math.min(
-                        Math.max(0, paddleX - paddle.width / 2),
-                        canvas.width - paddle.width
-                    );
-                }
-            }, { passive: false });
-            
-            // Prevent zooming and scrolling
-            document.addEventListener('touchmove', function(e) {
-                if (e.target === canvas) {
-                    e.preventDefault();
-                }
-            }, { passive: false });
+                const paddleX = touch.clientX - rect.left; // Calculate paddle position
+                // Update paddle position based on touch
+                updatePaddlePosition(paddleX);
+            });
         </script>
     </body>
 </html>
