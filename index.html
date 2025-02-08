@@ -36,8 +36,15 @@
             <footer>
                 <p>Email me: <a href="mailto:hardik@stroop.ai">hardik@stroop.ai</a></p>
                 <p>I occasionally post on Twitter <a href="https://twitter.com/hardik23patil">@hardik23patil</a></p>
-                <p>Last updated 11/20/2024; created using GitHub pages.</p>
+                <p>Last updated <span id="lastModified"></span>; created using GitHub pages.</p>
             </footer>
+            <script>
+                document.getElementById('lastModified').textContent = new Date(document.lastModified).toLocaleDateString('en-US', {
+                    month: 'numeric',
+                    day: 'numeric',
+                    year: 'numeric'
+                });
+            </script>
         </div>
     </main>
     <script src="script.js"></script>
