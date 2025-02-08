@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardik Patil</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Analytics tracking code-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V3GYG0VGH6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-V3GYG0VGH6');
+    </script>
+    <!-- End Google Analytics tracking code-->
+</head>
+<body>
+    <!-- Nav bar will be loaded here by JavaScript -->
+    <main class="home-layout">
+        <div class="image-container">
+            <img src="https://github.com/techpreneur23sf/thewebsite/raw/0479d5fbad2770a323412e031f3225e11a07718e/IMG_8830%20copy.jpg" alt="Golden Gate Bridge" loading="lazy" width="600" height="400">
+        </div>
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p>I am a Swiss Army Knife who is most useful as a generalist operator in early-stage startups.</p> 
+            <p>I am now building <a href="https://stroop.ai">Stroop</a>, which is building infra for developers to easily use LLMs.</p>
+            
+            <h4>Previously:</h4>
+            <ul>
+                <li>I was early at <a href="http://zeptonow.com">Zepto</a>, which is a hyperlocal grocery delivery company in India. I led ops/growth from pre-product to Series A.</li>
+                <li>I started a company called <a href="https://techcrunch.com/2022/09/27/og-app-promises-you-an-ad-free-instagram-feed/">OG</a>, which was building interoperability infra for social networking.</li>
+                <li>I led partnerships at <a href="https://www.xindus.net">Xindus</a>, a cross-border logistics startup. I scaled up revenue to $5M ARR and improved margins from -9X% to -X%.</li>
+            </ul>
+            
+            <footer>
+                <p>Email me: <a href="mailto:hardik@stroop.ai">hardik@stroop.ai</a></p>
+                <p>I occasionally post on Twitter <a href="https://twitter.com/hardik23patil">@hardik23patil</a></p>
+                <p>Last updated <span id="lastModified"></span>; created using GitHub pages.</p>
+            </footer>
+            <script>
+                document.getElementById('lastModified').textContent = new Date(document.lastModified).toLocaleDateString('en-US', {
+                    month: 'numeric',
+                    day: 'numeric',
+                    year: 'numeric'
+                });
+            </script>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
